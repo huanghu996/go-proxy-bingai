@@ -1,3 +1,4 @@
+const KievRPSSecAuth = 'FABiBBRaTOJILtFsMkpLVWSG6AN6C/svRwNmAAAEgAAACI+b+0yiFALvIAQRizwCH4dJfV8YbYmKiNwup8NqC1N3Vu1jfp42Ohk5coKAW/soH+cSyBJ3aXi4U3Jlnm1eet25i75DOe08/bZWCihmKoOv/MKGbPPOsEaEo5XGTb0rA3+qRqwzc6LpnaW5sfGZ+7t8JcvqPMQ5JmRUkq2Jiv7YhoHQFYIzPRDDRuQa3o8FUa2lW5geoXxO1sYZhumJdSTadvRcw4c6hdR7U3m/bdYv3LcrNSR+8ia1fZLvv1QFdIHfbpyuMUVqbidfwGZL2xFEB7M14b9nEMyN6n10RzCki4pYmP6+YWtafR9cCoEMu4DoVkhMAqpRIyi3lOW2UyuOoHOkBgMOVKlotGQoA77fqri9ptK41zhUo3LaONzFDkQtzF3Ebz3Z2i34XwoHN2H72JVoF0kSkhuHg0kybZuATxYNmHMQte0O84Fp3A/vUPsqWlkkeB1XdRx64isspc7AOgrMTXDlvsvsr38Lpxv+jugAXU7s0DmnLtyBujFoM/7WH6Bn5aGO3R039rD7406k94kLRzy6laIKCMZkTajrdEPni67F51Jb2XP3PWVUQi+IeEwuBNY/ZuD0j7EYx8p4E0AgjWx+g6NcalXsSD1flAEIjD3GaIBXIdebfHci9ECNcGZL0qeYVug52hOm73icA3o2XXqJxWmP+VoZK4EX0cIcodAidBkVBIy+ohGayiin219a+uzJZh490y1tl5hOmYIGOFjG/YNJpp61ysPU0hQWu2Qo3hQvBRtSGI1zWg++pP21FN3JiQziGcMX8dQkfWzK7iOPtCMfMT36v96iTcD1js9IGTHNp1BnDGuqaZKNblso9YfBVz5EThnM2Rx68jo4/Eeu2YyakNTGpyzyGRObzM018vDJaCJkS2Ek8AbmAjrOdkDA2jjH660Pv+aB+/PqnCanSFUwBrSqgi97/l0AhabgmuQzM0S/2zxpWfFGahAelfqZL+qqBkC0rVAKJYi22MwsIE7jQNMhpmd4Ff76FfQXIDfopa94w/IaiGFOp5AS99oY0lwhFracpNyDOWk6fedHK0kZ8baZjYl1Uff34Z6AYG1XQt49/Nl9NibGwBZGqcq+kRNOAI1CjBdBDD9ojFluPtqghVeQN5wVwSqg75VvH7H8Qp6YNY54XPE0x0PpDoLrWwOPPi3cb36elAlOFwscOHAVgCatUebEtrmUXMWMafcUBoMiG6e4oOv0bIixzRA+fYcPoSK+0hPwpiWU54vfWA2c2n/eITuxjRaTzdbHbP+8q9z6DCTRH7RGc7Rs5JUX3T4XT6Yhf/X7ySpr9E/VYn+fsYcVUMJxg+QsTpLCvLigIaqHIL2BbCOfBRYOTUM1ajWoFWv1gYMvOdNcCuGtcicaF/XQkzC1Seu4V+mrFil8mvPpLrk4NgLSJ2uVMfi7GOIUAMpc1cWUzQEhrrxNa7ZVk4n9WrR3';
 const SYDNEY_ORIGIN = 'https://sydney.bing.com';
 const KEEP_REQ_HEADERS = [
   'accept',
@@ -122,6 +123,7 @@ export default {
     const randIP = getRandomIP();
     // console.log('randIP : ', randIP);
     newHeaders.set('X-Forwarded-For', randIP);
+    newHeaders.set('Cookie', 'KievRPSSecAuth='+KievRPSSecAuth+';');
     const oldUA = request.headers.get('user-agent');
     const isMobile = oldUA.includes('Mobile') || oldUA.includes('Android');
     if (isMobile) {
